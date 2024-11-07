@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Transmisiones</title>
+</head>
+<body>
+    <h1>Lista de Transmisiones</h1>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Acciones</th>
+        </tr>
+        {% for transmission in transmissions %}
+        <tr>
+            <td>{{ transmission.name }}</td>
+            <td>
+                <a href="{% url 'transmission_delete' transmission.id %}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'transmission_create' %}">Crear nueva transmisión</a>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Vehículo</title>
+</head>
+<body>
+    <h1>Detalles del Vehículo</h1>
+    <p><strong>Marca:</strong> {{ car.brand.name }}</p>
+    <p><strong>Modelo:</strong> {{ car.model_car.name }}</p>
+    <p><strong>Año:</strong> {{ car.year_production }}</p>
+    <p><strong>Precio:</strong> {{ car.price }}</p>
+    <p><strong>Imagen:</strong> <img src="{{ car.image.url }}" width="100"></p>
+    <a href="{% url 'car_view' %}">Volver a la lista de vehículos</a>
+</body>
+</html>

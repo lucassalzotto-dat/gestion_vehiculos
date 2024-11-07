@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="vh-100">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong bg-secondary bg-gradient" style="border-radius: 1rem; ">
+                    <div class="card-body p-5 text-center">
+                        <h3 class="mb-5 text-dark font-weight-bold">Iniciar Sesion</h3>
+                        <form method="POST" action="{% url 'login' %}">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <div class="form-outline mb-4">
+                                    <label class="form-label text-dark font-weight-bold" for="username"><h5>Usuario</h5></label>
+                                    <input type="username" id="username" name="username" class="form-control form-control-lg bg-light" />
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <label class="form-label text-dark font-weight-bold" for="password"><h5>Contraseña</h5></label>
+                                    <input type="password" id="password" name="password" class="form-control form-control-lg bg-light" />
+                                </div>
+                            </div>
+                            <button data-mdb-ripple-init class="btn btn-primary btn-lg btn-block"
+                                type="submit">Ingresar</button>
+                            <a href="{% url 'register' %}" class="btn btn-primary btn-lg btn-block">Registrate</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

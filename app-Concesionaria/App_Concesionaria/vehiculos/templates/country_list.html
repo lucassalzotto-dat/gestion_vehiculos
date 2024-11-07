@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Países</title>
+</head>
+<body>
+    <h1>Lista de Países</h1>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Acciones</th>
+        </tr>
+        {% for country in countries %}
+        <tr>
+            <td>{{ country.name }}</td>
+            <td>
+                <a href="{% url 'country_delete' country.id %}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'country_create' %}">Crear nuevo país</a>
+</body>
+</html>

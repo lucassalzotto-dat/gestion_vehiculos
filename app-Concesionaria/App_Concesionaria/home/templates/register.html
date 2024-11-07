@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="vh-100">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong bg-secondary bg-gradient" style="border-radius: 1rem; background-color: #f5f5f5;">
+                    <div class="card-body p-5 text-center d-flex flex-column">
+                        <h3 class="mb-5 text-dark font-weight-bold">Registrarse</h3>
+                        <div class="d-flex flex-column">
+                            <form method="POST" action="" class="w-100">
+                                {% csrf_token %}
+                                <div class="form-group d-flex flex-column w-100 justify-content-center align-items-center">
+                                    <div class="form-outline mb-2 w-50">
+                                        <label class="mb-2 text-dark"><h5>Nombre de Usuario</h5></label>
+                                        <div class="bg-light">
+                                            {{ form.username }}
+                                        </div>
+                                    </div>
+                                    <div class="form-outline mb-2 w-50">
+                                        <label class="mb-2 text-dark"><h5>Email</h5></label>
+                                        <div>
+                                            {{ form.email }}
+                                        </div>
+                                    </div>
+                                    <div class="form-outline mb-2 w-50">
+                                        <label class="mb-2 text-dark"><h5>Contraseña</h5></label>
+                                        <div>
+                                            {{ form.password1 }}
+                                        </div> 
+                                    </div>
+                                    <div class="form-outline mb-2 w-50">
+                                        <label class="mb-2 text-dark"><h5>Repita la contraseña</h5></label>
+                                        <div>
+                                            {{ form.password2 }}
+                                        </div>
+                                    </div>
+                                    <div class="form-outline mb-2 w-50">
+                                        <label class="mb-2 text-dark"><h5>Nombre</h5></label>
+                                        <div class="bg-light">
+                                            {{ form.first_name }}
+                                        </div>
+                                    </div>
+                                    <div class="form-outline mb-2 w-50">
+                                        <label class="mb-2 text-dark"><h5>Apellido</h5></label>
+                                        <div class="bg-light">
+                                            {{ form.last_name }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary mt-3 btn-lg btn-block"
+                                    type="submit">Registrarme
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
