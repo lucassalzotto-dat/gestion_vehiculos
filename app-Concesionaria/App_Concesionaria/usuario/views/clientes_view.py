@@ -16,14 +16,14 @@ def staff_required(user):
 class Cliente_View(View):
     def get(self, request):
         clientes = repository.get_all()
-        return render(request, 'cliente/list.html', {'clientes': clientes})
+        return render(request, 'clientes/list.html', {'clientes': clientes})
 
 @method_decorator(user_passes_test(staff_required, login_url='index'), name='dispatch')
 class Cliente_Create(View):
     def get(self, request):
         form = ClienteForm()
         users = User.objects.all()
-        return render(request, 'cliente/create.html', {'form': form, 'users': users})
+        return render(request, 'clientes/create.html', {'form': form, 'users': users})
 
     def post(self, request):
         form = ClienteForm(request.POST)
@@ -36,7 +36,7 @@ class Cliente_Create(View):
                 phone=form.cleaned_data['phone']
             )
             return redirect('cliente_list')
-        return render(request, 'cliente/create.html', {'form': form})
+        return render(request, 'clientes/create.html', {'form': form})
 
 @method_decorator(user_passes_test(staff_required, login_url='index'), name='dispatch')
 class Cliente_Delete(View):
@@ -51,7 +51,7 @@ class Cliente_Update(View):
     def get(self, request, id):
         cliente = repository.get_by_id(id=id)
         form = ClienteForm(instance=cliente)
-        return render(request, 'cliente/update.html', {'form': form, 'cliente': cliente})
+        return render(request, 'clientes/update.html', {'form': form, 'cliente': cliente})
 
     def post(self, request, id):
         cliente = repository.get_by_id(id=id)

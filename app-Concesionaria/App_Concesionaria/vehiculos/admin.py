@@ -18,15 +18,11 @@ class CarAdmin(admin.ModelAdmin):
         'cilindrada',
         'fuel_type',
         'country_production',
-        'show_image',
+        'image',
         'price',
     )
 
-    def show_image(self, obj):
-        if obj.image:
-            return format_html('<img src="{}" width="50" height="50" />', obj.image.url)
-        return "No Image"
-    show_image.short_description = 'Imagen'
+
 
 @admin.register(Modelo)
 class ModeloAdmin(admin.ModelAdmin):

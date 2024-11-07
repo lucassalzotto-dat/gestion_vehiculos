@@ -5,7 +5,10 @@ from vehiculos.views.transmission_view import TransmissionListView, Transmission
 from vehiculos.views.gama_view import GamaListView, GamaCreateView, GamaDeleteView
 from vehiculos.views.country_view import CountryListView, CountryCreateView, CountryDeleteView
 
+app_name = 'vehiculos_app'
+
 urlpatterns = [
+
     # Car (renombrado car_list a vehiculo_list)
     path('cars/', CarListView.as_view(), name='vehiculo_list'),
     path('cars/create/', CarCreateView.as_view(), name='car_create'),

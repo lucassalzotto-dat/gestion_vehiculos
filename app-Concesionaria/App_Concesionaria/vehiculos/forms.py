@@ -17,7 +17,8 @@ class CarForm(forms.ModelForm):
             'km',
             'transmission',
             'gama',
-            'condition'
+            'condition',
+            'body_work'
         ]
         widgets = {
             'brand': forms.Select(attrs={'class': 'form-control'}),

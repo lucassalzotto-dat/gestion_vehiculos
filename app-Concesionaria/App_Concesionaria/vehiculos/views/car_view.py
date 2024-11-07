@@ -28,7 +28,7 @@ class CarCreateView(View):
         form = CarForm(request.POST, request.FILES)
         if form.is_valid():
             repository.create(**form.cleaned_data)
-            return redirect('car_list')
+            return redirect('vehiculos_app:vehiculo_list')
         return render(request, 'car_create.html', {'form': form})
 
 @method_decorator(user_passes_test(staff_required, login_url='index'), name='dispatch')
