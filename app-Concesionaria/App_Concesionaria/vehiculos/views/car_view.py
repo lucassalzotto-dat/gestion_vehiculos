@@ -27,7 +27,7 @@ class CarCreateView(View):
     def post(self, request):
         form = CarForm(request.POST, request.FILES)
         if form.is_valid():
-            repository.create(**form.cleaned_data)
+            form.save()  # Guarda el objeto directamente en la base de datos
             return redirect('vehiculos_app:vehiculo_list')
         return render(request, 'car_create.html', {'form': form})
 
@@ -40,7 +40,7 @@ class CarDetailView(View):
 @method_decorator(user_passes_test(staff_required, login_url='index'), name='dispatch')
 class CarUpdateView(View):
     def get(self, request, id):
-        car = repository.get_by_id(id)
+        car = repository.get_by_id(id)  # Asegúrate de que `repository.get_by_id` funcione correctamente
         form = CarForm(instance=car)
         return render(request, 'car_update.html', {'form': form, 'car': car})
     
@@ -49,7 +49,7 @@ class CarUpdateView(View):
         form = CarForm(request.POST, request.FILES, instance=car)
         if form.is_valid():
             repository.update(car, **form.cleaned_data)
-            return redirect('car_detail', id=id)
+            return redirect('vehiculos_app:car_detail', id=id)  # Usar el nombre de la vista
         return render(request, 'car_update.html', {'form': form, 'car': car})
 
 @method_decorator(user_passes_test(staff_required, login_url='index'), name='dispatch')

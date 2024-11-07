@@ -19,9 +19,9 @@
 </head>
 
 <body>
-    <header class="container">
-        <nav id="navbar" class="navbar navbar-expand-lg bg-navbar px-4" data-bs-theme="light">
-            <div class="container">
+    <header>
+        <nav id="navbar" class="navbar navbar-expand-lg bg-navbar px-4 w-100" data-bs-theme="light">
+            <div class="container-fluid">
                 <a class="navbar-brand fw-bold" href="{% url 'index' %}">
                     Dreams Cars 🏎️
                 </a>
@@ -64,7 +64,6 @@
                                     <li>
                                         <a class="dropdown-item fw-bold" href="{% url 'logout' %}">Salir</a>
                                     </li>
-
                                 </ul>
                             </div>
                         </li>
@@ -110,15 +109,15 @@
         crossorigin="anonymous"></script>
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.umd.min.js"></script>
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                var toastElements = document.querySelectorAll('.toast');
-                toastElements.forEach(function(toastEl) {
-                    var toast = new bootstrap.Toast(toastEl, { delay: 2500 });
-                    toast.show();
-                });
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var toastElements = document.querySelectorAll('.toast');
+            toastElements.forEach(function(toastEl) {
+                var toast = new bootstrap.Toast(toastEl, { delay: 2500 });
+                toast.show();
             });
-        </script>
+        });
+    </script>
 </body>
 
 </html>
