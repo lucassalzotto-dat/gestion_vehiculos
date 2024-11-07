@@ -14,9 +14,10 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
+            padding: 20px;
         }
         .container-details {
-            max-width: 600px;
+            max-width: 700px;
             background-color: #ffffff;
             padding: 30px;
             border-radius: 8px;
@@ -35,9 +36,12 @@
             margin-bottom: 20px;
             font-weight: 600;
         }
-        .vehicle-info .form-group {
+        .vehicle-info {
             text-align: left;
-            margin-bottom: 15px;
+            margin-bottom: 30px;
+        }
+        .vehicle-info .form-group {
+            margin-bottom: 10px;
         }
         .vehicle-info .form-group label {
             font-weight: bold;
@@ -47,7 +51,34 @@
             margin: 0;
             color: #333;
         }
-        .btn-back {
+        .review-section {
+            text-align: left;
+            margin-top: 30px;
+        }
+        .review-section h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .review {
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+            margin-top: 10px;
+            color: #333;
+        }
+        .review p {
+            margin: 0;
+        }
+        .review strong {
+            font-size: 1rem;
+            color: #007bff;
+        }
+        .review-date {
+            font-size: 0.9rem;
+            color: #999;
+        }
+        .btn-back, .btn-submit {
             background-color: #007bff;
             color: white;
             font-weight: bold;
@@ -55,10 +86,27 @@
             border-radius: 25px;
             border: none;
             text-decoration: none;
+            width: 100%;
+            max-width: 200px;
+            margin: 5px;
         }
-        .btn-back:hover {
+        .btn-back:hover, .btn-submit:hover {
             background-color: #0056b3;
             color: white;
+        }
+        .review-form h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-top: 30px;
+            color: #333;
+        }
+        .form-group label {
+            font-weight: 500;
+            color: #555;
+        }
+        .btn-group {
+            display: flex;
+            justify-content: center;
         }
     </style>
 </head>
@@ -106,7 +154,39 @@
             </div>
         </div>
         
-        <a href="{% url 'vehiculos_app:vehiculo_list' %}" class="btn-back">Volver a la lista de vehículos</a>
+        <!-- Sección de Reseñas -->
+        <div class="review-section">
+            <h2>Reseñas de los Usuarios</h2>
+            {% for review in reviews %}
+                <div class="review">
+                    <p><strong>{{ review.author.username }}</strong> <span class="review-date">- {{ review.date }}</span></p>
+                    <p>Calificación: {{ review.rating }}/5</p>
+                    <p>{{ review.text }}</p>
+                </div>
+            {% empty %}
+                <p>No hay reseñas para este vehículo todavía.</p>
+            {% endfor %}
+        </div>
+
+        <!-- Formulario para Agregar Reseña -->
+        <div class="review-form">
+            <h3>Deja tu Reseña</h3>
+            <form method="post" action="{% url 'vehiculos_app:add_review' car.id %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="id_text">Comentario:</label>
+                    {{ review_form.text }}
+                </div>
+                <div class="form-group">
+                    <label for="id_rating">Calificación:</label>
+                    {{ review_form.rating }}
+                </div>
+                <div class="btn-group">
+                    <button type="submit" class="btn-submit mt-3">Agregar Reseña</button>
+                    <a href="{% url 'vehiculos_app:vehiculo_list' %}" class="btn-back mt-3">Volver a la lista de vehículos</a>
+                </div>
+            </form>
+        </div>
     </div>
 
     <!-- Bootstrap JS and dependencies -->

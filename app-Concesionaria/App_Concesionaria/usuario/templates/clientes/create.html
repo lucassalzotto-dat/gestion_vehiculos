@@ -1,17 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear Cliente</title>
-</head>
-<body>
-    <h1>Crear Cliente</h1>
+{% extends "base.html" %}
+
+{% block title %}
+    Crear Cliente
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4 text-center">Crear Cliente</h1>
+    
     <form method="post">
         {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="user">Seleccionar Usuario</label>
+            <select name="user" id="user" class="form-control" required>
+                {% for user in users %}
+                    <option value="{{ user.id }}">{{ user.username }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
         {{ form.as_p }}
-        <button type="submit">Guardar</button>
+        
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a href="{% url 'cliente_list' %}" class="btn btn-secondary">Volver a la lista de clientes</a>
     </form>
-    <a href="{% url 'cliente_list' %}">Volver a la lista de clientes</a>
-</body>
-</html>
+</div>
+{% endblock %}

@@ -1,100 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Vehículos</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .vehicle-card {
-            border: none;
-            margin-bottom: 20px;
-        }
-        .vehicle-image {
-            height: 200px;
-            object-fit: cover;
-            background-color: #f0f0f0;
-        }
-        .card-title {
-            font-weight: bold;
-            font-size: 1.25rem;
-        }
-        .card-text {
-            font-size: 1rem;
-            color: #555;
-        }
-        .btn-view-more {
-            background-color: #0056b3;
-            color: white;
-            font-weight: bold;
-            border-radius: 20px;
-            padding: 8px 20px;
-        }
-        .btn-view-more:hover {
-            background-color: #004494;
-        }
-        .btn-edit {
-            background-color: #6c757d;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 5px;
-        }
-        .btn-edit:hover {
-            background-color: #5a6268;
-        }
-        .btn-delete {
-            background-color: #dc3545;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 5px;
-        }
-        .btn-delete:hover {
-            background-color: #c82333;
-        }
-    </style>
-</head>
-<body>
-    <div class="container mt-5">
-        <h1 class="mb-4 text-center">Lista de Vehículos</h1>
-        
-        <div class="row">
-            {% for car in cars %}
-            <div class="col-md-4">
-                <div class="card vehicle-card">
-                    {% if car.image %}
-                        <img src="{{ car.image.url }}" alt="Imagen del vehículo" class="card-img-top vehicle-image">
-                    {% else %}
-                        <div class="vehicle-image d-flex align-items-center justify-content-center">
-                            <p class="text-muted">No hay imagen disponible</p>
-                        </div>
-                    {% endif %}
-                    <div class="card-body">
-                        <h5 class="card-title">{{ car.brand.name }} {{ car.model_car.name }}</h5>
-                        <p class="card-text">Cuotas desde <strong>${{ car.price }}</strong></p>
-                        <p class="card-text">Año: {{ car.year_production }}</p>
-                        <p class="card-text text-muted">Condiciones sujetas a cambios.</p>
-                        <div class="d-flex justify-content-between">
-                            <a href="{% url 'vehiculos_app:car_detail' car.id %}" class="btn btn-view-more">¡Ver Más!</a>
-                            <a href="{% url 'vehiculos_app:car_update' car.id %}" class="btn btn-edit">Editar</a>
-                            <a href="{% url 'vehiculos_app:car_delete' car.id %}" class="btn btn-delete">Eliminar</a>
-                        </div>
+{% extends "base.html" %}
+
+{% block title %}
+    Lista de Vehículos
+{% endblock %}
+
+{% block content %}
+<style>
+    .btn-custom {
+        background-color: #2A5D78;
+        color: white;
+        font-weight: bold;
+        border-radius: 5px;
+        padding: 8px 16px;
+        border: none;
+    }
+    .btn-custom:hover {
+        background-color: #244b5f;
+    }
+</style>
+<div class="container mt-5">
+    <h1 class="mb-4 text-center">Lista de Vehículos</h1>
+    
+    <div class="row">
+        {% for car in cars %}
+        <div class="col-md-4">
+            <div class="card vehicle-card">
+                {% if car.image %}
+                    <img src="{{ car.image.url }}" alt="Imagen del vehículo" class="card-img-top vehicle-image">
+                {% else %}
+                    <div class="vehicle-image d-flex align-items-center justify-content-center">
+                        <p class="text-muted">No hay imagen disponible</p>
+                    </div>
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ car.brand.name }} {{ car.model_car.name }}</h5>
+                    <p class="card-text">Cuotas desde <strong>${{ car.price }}</strong></p>
+                    <p class="card-text">Año: {{ car.year_production }}</p>
+                    <p class="card-text text-muted">Condiciones sujetas a cambios.</p>
+                    <div class="d-flex justify-content-between">
+                        <a href="{% url 'vehiculos_app:car_detail' car.id %}" class="btn btn-custom">¡Ver Más!</a>
+                        <a href="{% url 'vehiculos_app:car_update' car.id %}" class="btn btn-custom">Editar</a>
+                        <a href="{% url 'vehiculos_app:car_delete' car.id %}" class="btn btn-danger">Eliminar</a>
                     </div>
                 </div>
             </div>
-            {% endfor %}
         </div>
-
-        <div class="text-center mt-4">
-            <a href="{% url 'vehiculos_app:car_create' %}" class="btn btn-primary">Crear nuevo vehículo</a>
-        </div>
+        {% endfor %}
     </div>
 
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+    <div class="text-center mt-4">
+        <a href="{% url 'vehiculos_app:car_create' %}" class="btn btn-primary">Crear nuevo vehículo</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,16 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalles de Usuario</title>
-</head>
-<body>
-    <h1>Detalles del Usuario</h1>
-    <p><strong>Nombre de Usuario:</strong> {{ usuario.username }}</p>
-    <p><strong>Email:</strong> {{ usuario.email }}</p>
-    <p><strong>Nombre:</strong> {{ usuario.first_name }}</p>
-    <p><strong>Apellido:</strong> {{ usuario.last_name }}</p>
-    <a href="{% url 'usuario_list' %}">Volver a la lista de usuarios</a>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}
+    Detalles de Usuario
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4 text-center">Detalles del Usuario</h1>
+    <div class="card mx-auto" style="max-width: 500px;">
+        <div class="card-body">
+            <p><strong>Nombre de Usuario:</strong> {{ usuario.username }}</p>
+            <p><strong>Email:</strong> {{ usuario.email }}</p>
+            <p><strong>Nombre:</strong> {{ usuario.first_name }}</p>
+            <p><strong>Apellido:</strong> {{ usuario.last_name }}</p>
+        </div>
+    </div>
+    <div class="text-center mt-4">
+        <a href="{% url 'usuario_list' %}" class="btn btn-secondary">Volver a la lista de usuarios</a>
+    </div>
+</div>
+{% endblock %}

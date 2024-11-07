@@ -1,5 +1,5 @@
 from django import forms
-from vehiculos.models import Car, Modelo, Brand, Fuel, Country, Transmission, Gama
+from vehiculos.models import Car, Modelo, Brand, Fuel, Country, Transmission, Gama, VehiculoReview
 
 class CarForm(forms.ModelForm):
     class Meta:
@@ -82,4 +82,12 @@ class GamaForm(forms.ModelForm):
         fields = ['name']
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control'}),
+        }
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = VehiculoReview
+        fields = ['text', 'rating']
+        widgets = {
+            'text': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
+            'rating': forms.Select(attrs={'class': 'form-control'}),
         }

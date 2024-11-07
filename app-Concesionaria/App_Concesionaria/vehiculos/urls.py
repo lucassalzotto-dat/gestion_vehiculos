@@ -1,5 +1,5 @@
 from django.urls import path
-from vehiculos.views.car_view import CarListView, CarCreateView, CarDetailView, CarUpdateView, CarDeleteView
+from vehiculos.views.car_view import CarListView, CarCreateView, CarDetailView, CarUpdateView, CarDeleteView, AddReviewView
 from vehiculos.views.fuel_view import FuelListView, FuelCreateView, FuelDeleteView
 from vehiculos.views.transmission_view import TransmissionListView, TransmissionCreateView, TransmissionDeleteView
 from vehiculos.views.gama_view import GamaListView, GamaCreateView, GamaDeleteView
@@ -13,6 +13,7 @@ urlpatterns = [
     path('cars/', CarListView.as_view(), name='vehiculo_list'),
     path('cars/create/', CarCreateView.as_view(), name='car_create'),
     path('cars/<int:id>/', CarDetailView.as_view(), name='car_detail'),
+    path('vehiculos/<int:car_id>/add_review/', AddReviewView.as_view(), name='add_review'),
     path('cars/<int:id>/update/', CarUpdateView.as_view(), name='car_update'),
     path('cars/<int:id>/delete/', CarDeleteView.as_view(), name='car_delete'),
     

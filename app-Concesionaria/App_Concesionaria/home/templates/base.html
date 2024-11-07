@@ -58,7 +58,7 @@
                                         <path fill-rule="evenodd"
                                             d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
                                     </svg>
-                                    ¡Hola, {{ user_info.name }}!
+                                    ¡Bienvenido a Dreams, {{ user_info.name }}!
                                 </button>
                                 <ul class="dropdown-menu">
                                     <li>
@@ -80,22 +80,6 @@
             {% block content %}
             
             {% endblock %}
-        </div>
-        <div class="position-fixed bottom-0 end-0 p-3">
-            {% if notification %}
-            <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-                <div class="toast-header">
-                    <strong class="me-auto">Sistema de Gestion</strong>
-                    <small>{{ notification.created_at|date:"H:i" }}</small>
-                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                </div>
-                <div class="toast-body">
-                    {{ notification.message }}
-                </div>
-            </div>
-            {% endif %}
-        </div>
-    </main>
     <footer>
         <!-- place footer here -->
     </footer>
