@@ -35,7 +35,7 @@ class Cliente_Create(View):
                 address=form.cleaned_data['address'],
                 phone=form.cleaned_data['phone']
             )
-            return redirect('cliente_list')
+            return redirect('cliente_view')
         return render(request, 'clientes/create.html', {'form': form})
 
 @method_decorator(user_passes_test(staff_required, login_url='index'), name='dispatch')

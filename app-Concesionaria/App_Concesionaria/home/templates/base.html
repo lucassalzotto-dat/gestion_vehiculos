@@ -32,7 +32,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto mb-lg-0">
                         <li class="nav-item m-1">
-                            <a class="nav-link fw-bold" href="{% url 'vehiculo_list' %}">Vehículos</a>
+                            <a class="nav-link fw-bold" href="{% url 'vehiculos_app:vehiculo_list' %}">Vehículos</a>
                         </li>
                         {% if user.is_authenticated %}
                         <li class="nav-item m-1 fw-bold pt-2">

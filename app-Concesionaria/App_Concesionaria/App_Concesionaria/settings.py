@@ -80,10 +80,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'app_concesionaria_db',
-        'USER': 'salsa',
-        'PASSWORD': 'salsa',
+        'USER': 'hildmann',
+        'PASSWORD': 'hildmann',
         'HOST': 'localhost',
-        'PORT': '5432',
+        'PORT': '3306',
     }
 }
 

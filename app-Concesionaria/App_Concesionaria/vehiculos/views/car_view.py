@@ -57,4 +57,4 @@ class CarDeleteView(View):
     def get(self, request, id):
         car = repository.get_by_id(id)
         repository.delete(car)
-        return redirect('car_list')
+        return redirect('vehiculos_app:vehiculo_list')

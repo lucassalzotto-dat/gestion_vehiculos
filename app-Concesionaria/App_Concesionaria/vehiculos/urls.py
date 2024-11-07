@@ -15,6 +15,7 @@ urlpatterns = [
     path('cars/<int:id>/', CarDetailView.as_view(), name='car_detail'),
     path('cars/<int:id>/update/', CarUpdateView.as_view(), name='car_update'),
     path('cars/<int:id>/delete/', CarDeleteView.as_view(), name='car_delete'),
+    
 
     # Fuel
     path('fuel/', FuelListView.as_view(), name='fuel_list'),
