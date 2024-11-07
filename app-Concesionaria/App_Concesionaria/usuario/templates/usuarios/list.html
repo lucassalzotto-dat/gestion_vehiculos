@@ -21,16 +21,16 @@
                 <td>{{ usuario.username }}</td>
                 <td>{{ usuario.email }}</td>
                 <td>
-                    <a href="{% url 'usuario_detail' usuario.id %}" class="btn btn-info btn-sm">Detalles</a>
-                    <a href="{% url 'usuario_update' usuario.id %}" class="btn btn-primary btn-sm">Editar</a>
-                    <a href="{% url 'usuario_delete' usuario.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+                    <a href="{% url 'usuario_app:usuario_detail' usuario.id %}" class="btn btn-info btn-sm">Detalles</a>
+                    <a href="{% url 'usuario_app:usuario_update' usuario.id %}" class="btn btn-primary btn-sm">Editar</a>
+                    <a href="{% url 'usuario_app:usuario_delete' usuario.id %}" class="btn btn-danger btn-sm">Eliminar</a>
                 </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
     <div class="text-center mt-4">
-        <a href="{% url 'usuario_create' %}" class="btn btn-primary">Crear nuevo usuario</a>
+        <a href="{% url 'usuario_app:usuario_create' %}" class="btn btn-primary">Crear nuevo usuario</a>
     </div>
 </div>
 {% endblock %}

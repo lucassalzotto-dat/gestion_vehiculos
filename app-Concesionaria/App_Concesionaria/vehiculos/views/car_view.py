@@ -19,18 +19,19 @@ class CarListView(View):
     def get(self, request):
         cars = repository.get_all()
         return render(request, 'car_list.html', {'cars': cars})
-
+        
+@method_decorator(user_passes_test(staff_required, login_url='index'), name='dispatch')
 @method_decorator(user_passes_test(staff_required, login_url='index'), name='dispatch')
 class CarCreateView(View):
     def get(self, request):
         form = CarForm()
         return render(request, 'car_create.html', {'form': form})
-    
+
     def post(self, request):
         form = CarForm(request.POST, request.FILES)
         if form.is_valid():
-            car = form.save()  # Guarda el objeto y lo asigna a `car`
-            return redirect('vehiculos_app:car_detail', id=car.id)  # Redirige a los detalles del vehículo recién creado
+            repository.create(**form.cleaned_data)
+            return redirect('vehiculos_app:vehiculo_list')
         return render(request, 'car_create.html', {'form': form})
 
 @method_decorator(user_passes_test(staff_required, login_url='index'), name='dispatch')

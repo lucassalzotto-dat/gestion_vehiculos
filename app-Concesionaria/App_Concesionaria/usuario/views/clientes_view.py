@@ -37,3 +37,29 @@ class Cliente_Create(View):
             return redirect('cliente_list')
         users = User.objects.all()  # Agregar los usuarios de nuevo en caso de que el formulario no sea válido
         return render(request, 'clientes/create.html', {'form': form, 'users': users})
+@method_decorator(user_passes_test(staff_required, login_url='index'), name='dispatch')
+class Cliente_Delete(View):
+    def get(self, request, id):
+        cliente = repository.get_by_id(id=id)
+        if cliente:
+            repository.delete(cliente)
+        return redirect('cliente_list')
+
+@method_decorator(user_passes_test(staff_required, login_url='index'), name='dispatch')
+class Cliente_Update(View):
+    def get(self, request, id):
+        cliente = repository.get_by_id(id=id)
+        form = ClienteForm(instance=cliente)
+        return render(request, 'clientes/update.html', {'form': form, 'cliente': cliente})
+
+    def post(self, request, id):
+        cliente = repository.get_by_id(id=id)
+        form = ClienteForm(request.POST, instance=cliente)
+        if form.is_valid():
+            repository.update(
+                cliente=cliente,
+                address=form.cleaned_data['address'],
+                phone=form.cleaned_data['phone']
+            )
+            return redirect('cliente_list')
+        return render(request, 'cliente/update.html', {'form': form, 'cliente': cliente})

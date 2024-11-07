@@ -40,10 +40,10 @@
                         </li>
                         {% if user.is_staff %}
                         <li class="nav-item m-1">
-                            <a class="nav-link fw-bold" href="{% url 'cliente_list' %}">Clientes</a>
+                            <a class="nav-link fw-bold" href="{% url 'usuario_app:cliente_list' %}">Clientes</a>
                         </li>
                         <li class="nav-item m-1">
-                            <a class="nav-link fw-bold" href="{% url 'usuario_list' %}">Usuarios</a>
+                            <a class="nav-link fw-bold" href="{% url 'usuario_app:usuario_list' %}">Usuarios</a>
                         </li>
                         {% endif %}
                         {% endif %}
