@@ -5,7 +5,7 @@ from vehiculos.views.fuel_view import FuelListView, FuelCreateView, FuelDeleteVi
 from vehiculos.views.transmission_view import TransmissionListView, TransmissionCreateView, TransmissionDeleteView
 from vehiculos.views.gama_view import GamaListView, GamaCreateView, GamaDeleteView
 from vehiculos.views.country_view import CountryListView, CountryCreateView, CountryDeleteView
-from vehiculos.views.api_views import CarViewSet, BrandViewSet,VehiculoReviewViewSet
+from vehiculos.views.api_views import *
 
 app_name = 'vehiculos_app'
 
@@ -14,7 +14,13 @@ router = DefaultRouter()
 router.register(r'api/cars', CarViewSet, basename='api_car')
 router.register(r'api/brands', BrandViewSet, basename='api_brand')
 router.register(r'api/cars/(?P<car_id>\d+)/reviews', VehiculoReviewViewSet, basename='api_car_reviews')
-
+router.register(r'api/countries', CountryViewSet, basename='api_country')
+router.register(r'api/models', ModeloViewSet, basename='api_model')
+router.register(r'api/fuels', FuelViewSet, basename='api_fuel')
+router.register(r'api/transmissions', TransmissionViewSet, basename='api_transmission')
+router.register(r'api/gamas', GamaViewSet, basename='api_gama')
+router.register(r'api/conditions', ConditionViewSet, basename='api_condition')
+router.register(r'api/bodyworks', BodyWorkViewSet, basename='api_bodywork')
 # Rutas normales y rutas de API
 urlpatterns = [
     # Car
