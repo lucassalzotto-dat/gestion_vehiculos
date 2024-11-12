@@ -39,8 +39,11 @@
                     <p class="card-text text-muted">Condiciones sujetas a cambios.</p>
                     <div class="d-flex justify-content-between">
                         <a href="{% url 'vehiculos_app:car_detail' car.id %}" class="btn btn-custom">¡Ver Más!</a>
-                        <a href="{% url 'vehiculos_app:car_update' car.id %}" class="btn btn-custom">Editar</a>
-                        <a href="{% url 'vehiculos_app:car_delete' car.id %}" class="btn btn-danger">Eliminar</a>
+                        
+                        {% if user.is_staff %}
+                            <a href="{% url 'vehiculos_app:car_update' car.id %}" class="btn btn-custom">Editar</a>
+                            <a href="{% url 'vehiculos_app:car_delete' car.id %}" class="btn btn-danger">Eliminar</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -48,8 +51,10 @@
         {% endfor %}
     </div>
 
-    <div class="text-center mt-4">
-        <a href="{% url 'vehiculos_app:car_create' %}" class="btn btn-primary">Crear nuevo vehículo</a>
-    </div>
+    {% if user.is_staff %}
+        <div class="text-center mt-4">
+            <a href="{% url 'vehiculos_app:car_create' %}" class="btn btn-primary">Crear nuevo vehículo</a>
+        </div>
+    {% endif %}
 </div>
 {% endblock %}

@@ -43,33 +43,6 @@ class LogoutView(View):
         logout(request)
         return redirect('index')
 
-#Rederiza el template de register y crea un nuevo registro con los datos ingresados, luego redirige al index.
-class RegisterView(View):
-    form_class = UserRegisterForm
-    template_name = 'register.html'
 
-    def get(self, request):
-        form = self.form_class()
-        return render(
-            request,
-            self.template_name,
-            {
-                'form':form
-            }  
-        )
-    
-    def post(self, request):
-        form = self.form_class(request.POST)
-        if form.is_valid():
-            user = form.save()
-            login(request, user)
-            return redirect('index')
-        return render(
-            request,
-            self.template_name,
-            {
-                'form':form
-            }
-        )
 
 

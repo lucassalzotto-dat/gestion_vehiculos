@@ -1,115 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalles del Vehículo</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f4f6f8;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
-        }
-        .container-details {
-            max-width: 700px;
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            text-align: center;
-        }
-        .container-details img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-        .container-details h1 {
-            font-size: 1.8rem;
-            color: #333;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-        .vehicle-info {
-            text-align: left;
-            margin-bottom: 30px;
-        }
-        .vehicle-info .form-group {
-            margin-bottom: 10px;
-        }
-        .vehicle-info .form-group label {
-            font-weight: bold;
-            color: #555;
-        }
-        .vehicle-info .form-group p {
-            margin: 0;
-            color: #333;
-        }
-        .review-section {
-            text-align: left;
-            margin-top: 30px;
-        }
-        .review-section h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: #333;
-        }
-        .review {
-            border-top: 1px solid #ddd;
-            padding-top: 10px;
-            margin-top: 10px;
-            color: #333;
-        }
-        .review p {
-            margin: 0;
-        }
-        .review strong {
-            font-size: 1rem;
-            color: #007bff;
-        }
-        .review-date {
-            font-size: 0.9rem;
-            color: #999;
-        }
-        .btn-back, .btn-submit {
-            background-color: #007bff;
-            color: white;
-            font-weight: bold;
-            padding: 10px 20px;
-            border-radius: 25px;
-            border: none;
-            text-decoration: none;
-            width: 100%;
-            max-width: 200px;
-            margin: 5px;
-        }
-        .btn-back:hover, .btn-submit:hover {
-            background-color: #0056b3;
-            color: white;
-        }
-        .review-form h3 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-top: 30px;
-            color: #333;
-        }
-        .form-group label {
-            font-weight: 500;
-            color: #555;
-        }
-        .btn-group {
-            display: flex;
-            justify-content: center;
-        }
-    </style>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Detalles del Vehículo</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            body {
+                background-color: #f4f6f8;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                margin: 0;
+                padding: 20px;
+            }
+            .container-details {
+                max-width: 700px;
+                background-color: #ffffff;
+                padding: 30px;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                text-align: center;
+            }
+            .container-details img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 8px;
+                margin-bottom: 20px;
+            }
+            .container-details h1 {
+                font-size: 1.8rem;
+                color: #333;
+                margin-bottom: 20px;
+                font-weight: 600;
+            }
+            .vehicle-info {
+                text-align: left;
+                margin-bottom: 30px;
+            }
+            .vehicle-info .form-group {
+                margin-bottom: 10px;
+            }
+            .vehicle-info .form-group label {
+                font-weight: bold;
+                color: #555;
+            }
+            .vehicle-info .form-group p {
+                margin: 0;
+                color: #333;
+            }
+            .review-section {
+                text-align: left;
+                margin-top: 30px;
+            }
+            .review-section h2 {
+                font-size: 1.5rem;
+                font-weight: 600;
+                margin-bottom: 15px;
+                color: #333;
+            }
+            .review {
+                border-top: 1px solid #ddd;
+                padding-top: 10px;
+                margin-top: 10px;
+                color: #333;
+            }
+            .review p {
+                margin: 0;
+            }
+            .review strong {
+                font-size: 1rem;
+                color: #007bff;
+            }
+            .review-date {
+                font-size: 0.9rem;
+                color: #999;
+            }
+            .btn-back, .btn-submit {
+                background-color: #007bff;
+                color: white;
+                font-weight: bold;
+                padding: 10px 20px;
+                border-radius: 25px;
+                border: none;
+                text-decoration: none;
+                width: 100%;
+                max-width: 200px;
+                margin: 5px;
+            }
+            .btn-back:hover, .btn-submit:hover {
+                background-color: #0056b3;
+                color: white;
+            }
+            .review-form h3 {
+                font-size: 1.4rem;
+                font-weight: 600;
+                margin-top: 30px;
+                color: #333;
+            }
+            .form-group label {
+                font-weight: 500;
+                color: #555;
+            }
+            .btn-group {
+                display: flex;
+                justify-content: center;
+            }
+        </style>
+    </head>
 <body>
     <div class="container-details">
         <h1>Detalles del Vehículo</h1>
@@ -128,26 +128,7 @@
                 <label>Modelo:</label>
                 <p>{{ car.model_car.name }}</p>
             </div>
-            <div class="form-group">
-                <label>Año de Producción:</label>
-                <p>{{ car.year_production }}</p>
-            </div>
-            <div class="form-group">
-                <label>Cantidad de Puertas:</label>
-                <p>{{ car.door_quantity }}</p>
-            </div>
-            <div class="form-group">
-                <label>Cilindrada:</label>
-                <p>{{ car.cilindrada }}</p>
-            </div>
-            <div class="form-group">
-                <label>Tipo de Combustible:</label>
-                <p>{{ car.fuel_type }}</p>
-            </div>
-            <div class="form-group">
-                <label>País de Producción:</label>
-                <p>{{ car.country_production }}</p>
-            </div>
+            <!-- Other fields -->
             <div class="form-group">
                 <label>Precio:</label>
                 <p>${{ car.price }}</p>
@@ -169,29 +150,28 @@
         </div>
 
         <!-- Formulario para Agregar Reseña -->
-        <div class="review-form">
-            <h3>Deja tu Reseña</h3>
-            <form method="post" action="{% url 'vehiculos_app:add_review' car.id %}">
-                {% csrf_token %}
-                <div class="form-group">
-                    <label for="id_text">Comentario:</label>
-                    {{ review_form.text }}
-                </div>
-                <div class="form-group">
-                    <label for="id_rating">Calificación:</label>
-                    {{ review_form.rating }}
-                </div>
-                <div class="btn-group">
-                    <button type="submit" class="btn-submit mt-3">Agregar Reseña</button>
-                    <a href="{% url 'vehiculos_app:vehiculo_list' %}" class="btn-back mt-3">Volver a la lista de vehículos</a>
-                </div>
-            </form>
-        </div>
+        {% if user.is_authenticated %}
+            <div class="review-form">
+                <h3>Deja tu Reseña</h3>
+                <form method="post" action="{% url 'vehiculos_app:add_review' car.id %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="id_text">Comentario:</label>
+                        {{ review_form.text }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_rating">Calificación:</label>
+                        {{ review_form.rating }}
+                    </div>
+                    <div class="btn-group">
+                        <button type="submit" class="btn-submit mt-3">Agregar Reseña</button>
+                        <a href="{% url 'vehiculos_app:vehiculo_list' %}" class="btn-back mt-3">Volver a la lista de vehículos</a>
+                    </div>
+                </form>
+            </div>
+        {% else %}
+            <p>Inicia sesión para dejar una reseña.</p>
+        {% endif %}
     </div>
-
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

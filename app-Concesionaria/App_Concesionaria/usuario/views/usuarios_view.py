@@ -5,6 +5,8 @@ from django.utils.decorators import method_decorator
 from django.contrib.auth.models import User
 from usuario.repositorios.usuarios_repositories import Usuario_Repository
 from usuario.forms import UserRegisterForm, UserUpdateForm
+from django.contrib.auth import login
+from usuario.forms import RegisterForm
 
 repository = Usuario_Repository()
 
@@ -29,8 +31,8 @@ class Usuario_Create(View):
         form = self.form_class(request.POST)
         if form.is_valid():
             user = form.save()
-            return redirect('usuario_list')
-        return render(request, 'usuarios/create.html', {'form': form})
+            return redirect('usuario_app:usuario_list')
+        return render(request, 'usuarios/list.html', {'form': form})
 
 @method_decorator(user_passes_test(staff_required, login_url='index'), name='dispatch')
 class Usuario_Detail(View):
@@ -44,7 +46,7 @@ class Usuario_Delete(View):
         usuario = repository.get_by_id(id=id)
         if usuario:
             repository.delete(usuario)
-        return redirect('usuario_list')
+        return redirect('usuario_app:usuario_list')
 
 @method_decorator(user_passes_test(staff_required, login_url='index'), name='dispatch')
 class Usuario_Update(View):
@@ -60,5 +62,19 @@ class Usuario_Update(View):
         user_form = self.form_class(request.POST, instance=usuario)
         if user_form.is_valid():
             user_form.save()
-            return redirect('usuario_detail', id=id)
+            return redirect('usuario_app:usuario_detail', id=id)
         return render(request, 'usuarios/update.html', {'user_form': user_form, 'usuario': usuario})
+
+
+class RegisterView(View):
+    def get(self, request):
+        form = RegisterForm()
+        return render(request, 'usuarios/register.html', {'form': form})
+
+    def post(self, request):
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)  # Opcional: inicia sesión al usuario inmediatamente después de registrarse
+            return redirect('vehiculos_app:vehiculo_list')
+        return render(request, 'register.html', {'form': form})
