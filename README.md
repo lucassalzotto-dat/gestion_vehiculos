@@ -22,8 +22,8 @@ Este proyecto es una aplicación web para gestionar una concesionaria de autos. 
 
 1. **Clona el Repositorio**:
    ```bash
-   git clone https://github.com/usuario/proyecto-concesionaria.git
-   cd proyecto-concesionaria
+   git clone https://github.com/lucassalzotto-dat/gestion_vehiculos.git
+   cd gestion_vehiculos
    ```
 
 2. **Crea un Entorno Virtual e Instala las Dependencias**:
