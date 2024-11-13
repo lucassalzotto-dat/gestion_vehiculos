@@ -128,7 +128,26 @@
                 <label>Modelo:</label>
                 <p>{{ car.model_car.name }}</p>
             </div>
-            <!-- Other fields -->
+            <div class="form-group">
+                <label>Año de Producción:</label>
+                <p>{{ car.year_production }}</p>
+            </div>
+            <div class="form-group">
+                <label>Cantidad de Puertas:</label>
+                <p>{{ car.door_quantity }}</p>
+            </div>
+            <div class="form-group">
+                <label>Cilindrada:</label>
+                <p>{{ car.cilindrada }}</p>
+            </div>
+            <div class="form-group">
+                <label>Tipo de Combustible:</label>
+                <p>{{ car.fuel_type }}</p>
+            </div>
+            <div class="form-group">
+                <label>País de Producción:</label>
+                <p>{{ car.country_production }}</p>
+            </div>
             <div class="form-group">
                 <label>Precio:</label>
                 <p>${{ car.price }}</p>

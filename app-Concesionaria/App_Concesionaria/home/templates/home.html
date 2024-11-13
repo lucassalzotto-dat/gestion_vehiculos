@@ -1,18 +1,32 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block title %}
-    Dream Cars 🏎️
+    {% trans "Dream Cars 🏎️" %}
 {% endblock %}
 
 {% block content %}
+<!-- Formulario para cambiar el idioma -->
+<form action="{% url 'set_language' %}" method="post" class="mb-4 text-start" style="margin-top: 15px;">
+    {% csrf_token %}
+    <select name="language" onchange="if(this.value) { this.form.submit(); } else { window.location.href = '/' }" class="form-select form-select-sm d-inline-block w-auto">
+        <option value="">Idioma Predeterminado</option>
+        <option value="es" {% if LANGUAGE_CODE == 'es' %}selected{% endif %}>Español</option>
+        <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>English</option>
+        <option value="zh-hans" {% if LANGUAGE_CODE == 'zh-hans' %}selected{% endif %}>中文 (简体)</option>
+    </select>
+</form>
+
+
+
 <div class="hero-wrap position-relative" style="background-image: url('media/vehiculos_images/fondo.jpg'); height: 100vh; background-size: cover; background-position: center;">
     <div class="overlay position-absolute" style="background-color: rgba(0, 0, 0, 0.6); top: 0; left: 0; width: 100%; height: 100%;"></div>
     <div class="container h-100 d-flex justify-content-start align-items-center position-relative">
         <div class="row">
             <div class="col-md-7 text-white">
-                <span class="subheading" style="font-size: 1.8rem; color: #f8f9fa; font-weight: 300;">Bienvenido a Dream Cars</span>
-                <h1 class="display-3" style="color: #ffffff; font-weight: 700; margin-top: 10px;">Haz realidad tu sueño sobre ruedas</h1>
-                <a href="{% url 'vehiculos_app:vehiculo_list' %}" class="btn btn-primary mt-4 px-4 py-2" style="font-size: 1.2rem; background-color: #007bff; border-color: #007bff;">Explorar Modelos</a>
+                <span class="subheading" style="font-size: 1.8rem; color: #f8f9fa; font-weight: 300;">{% trans "Bienvenido a Dream Cars" %}</span>
+                <h1 class="display-3" style="color: #ffffff; font-weight: 700; margin-top: 10px;">{% trans "Haz realidad tu sueño sobre ruedas" %}</h1>
+                <a href="{% url 'vehiculos_app:vehiculo_list' %}" class="btn btn-primary mt-4 px-4 py-2" style="font-size: 1.2rem; background-color: #007bff; border-color: #007bff;">{% trans "Explorar Modelos" %}</a>
             </div>
         </div>
     </div>
@@ -22,8 +36,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3 mb-4">
-                <h5 class="text-uppercase font-weight-bold">Acerca de</h5>
-                <p style="font-size: 0.95rem; color: #555;">En Dreams Cars, somos la concesionaria más destacada del mercado. Nos dedicamos a ofrecerte una experiencia inolvidable.</p>
+                <h5 class="text-uppercase font-weight-bold">{% trans "Acerca de" %}</h5>
+                <p style="font-size: 0.95rem; color: #555;">{% trans "En Dreams Cars, somos la concesionaria más destacada del mercado. Nos dedicamos a ofrecerte una experiencia inolvidable." %}</p>
                 <ul class="list-inline">
                     <li class="list-inline-item"><a href="#" class="text-dark"><i class="fa fa-twitter fa-lg"></i></a></li>
                     <li class="list-inline-item"><a href="#" class="text-dark"><i class="fa fa-facebook fa-lg"></i></a></li>
@@ -31,30 +45,30 @@
                 </ul>
             </div>
             <div class="col-md-3 mb-4">
-                <h5 class="text-uppercase font-weight-bold">Información</h5>
+                <h5 class="text-uppercase font-weight-bold">{% trans "Información" %}</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#" class="text-dark" style="font-size: 0.9rem; text-decoration: none;">Online Enquiry</a></li>
-                    <li><a href="#" class="text-dark" style="font-size: 0.9rem; text-decoration: none;">General Enquiries</a></li>
-                    <li><a href="#" class="text-dark" style="font-size: 0.9rem; text-decoration: none;">Booking Conditions</a></li>
-                    <li><a href="#" class="text-dark" style="font-size: 0.9rem; text-decoration: none;">Privacy and Policy</a></li>
-                    <li><a href="#" class="text-dark" style="font-size: 0.9rem; text-decoration: none;">Refund Policy</a></li>
-                    <li><a href="#" class="text-dark" style="font-size: 0.9rem; text-decoration: none;">Call Us</a></li>
+                    <li><a href="#" class="text-dark" style="font-size: 0.9rem; text-decoration: none;">{% trans "Online Enquiry" %}</a></li>
+                    <li><a href="#" class="text-dark" style="font-size: 0.9rem; text-decoration: none;">{% trans "General Enquiries" %}</a></li>
+                    <li><a href="#" class="text-dark" style="font-size: 0.9rem; text-decoration: none;">{% trans "Booking Conditions" %}</a></li>
+                    <li><a href="#" class="text-dark" style="font-size: 0.9rem; text-decoration: none;">{% trans "Privacy and Policy" %}</a></li>
+                    <li><a href="#" class="text-dark" style="font-size: 0.9rem; text-decoration: none;">{% trans "Refund Policy" %}</a></li>
+                    <li><a href="#" class="text-dark" style="font-size: 0.9rem; text-decoration: none;">{% trans "Call Us" %}</a></li>
                 </ul>
             </div>
             <div class="col-md-3 mb-4">
-                <h5 class="text-uppercase font-weight-bold">Opciones</h5>
+                <h5 class="text-uppercase font-weight-bold">{% trans "Opciones" %}</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#" class="text-dark" style="font-size: 0.9rem; text-decoration: none;">0 KM</a></li>
-                    <li><a href="#" class="text-dark" style="font-size: 0.9rem; text-decoration: none;">Usados</a></li>
-                    <li><a href="#" class="text-dark" style="font-size: 0.9rem; text-decoration: none;">Planes de Ahorro</a></li>
-                    <li><a href="#" class="text-dark" style="font-size: 0.9rem; text-decoration: none;">Post Venta</a></li>
-                    <li><a href="#" class="text-dark" style="font-size: 0.9rem; text-decoration: none;">Foro</a></li>
+                    <li><a href="#" class="text-dark" style="font-size: 0.9rem; text-decoration: none;">{% trans "0 KM" %}</a></li>
+                    <li><a href="#" class="text-dark" style="font-size: 0.9rem; text-decoration: none;">{% trans "Usados" %}</a></li>
+                    <li><a href="#" class="text-dark" style="font-size: 0.9rem; text-decoration: none;">{% trans "Planes de Ahorro" %}</a></li>
+                    <li><a href="#" class="text-dark" style="font-size: 0.9rem; text-decoration: none;">{% trans "Post Venta" %}</a></li>
+                    <li><a href="#" class="text-dark" style="font-size: 0.9rem; text-decoration: none;">{% trans "Foro" %}</a></li>
                 </ul>
             </div>
             <div class="col-md-3 mb-4">
-                <h5 class="text-uppercase font-weight-bold">Contacta con Nosotros</h5>
+                <h5 class="text-uppercase font-weight-bold">{% trans "Contacta con Nosotros" %}</h5>
                 <ul class="list-unstyled" style="font-size: 0.9rem; color: #555;">
-                    <li><i class="fa fa-map-marker"></i> A005, 123, Río Cuarto, Córdoba</li>
+                    <li><i class="fa fa-map-marker"></i> {% trans "A005, 123, Río Cuarto, Córdoba" %}</li>
                     <li><i class="fa fa-phone"></i> +358-800-8990</li>
                     <li><i class="fa fa-envelope"></i> dream_cars@gmail.com</li>
                 </ul>
@@ -63,11 +77,10 @@
         <div class="row mt-3">
             <div class="col text-center">
                 <p class="mb-0" style="font-size: 0.85rem; color: #555;">
-                    &copy; <script>document.write(new Date().getFullYear());</script> Dream Cars S.A. Todos los derechos reservados
+                    &copy; <script>document.write(new Date().getFullYear());</script> {% trans "Dream Cars S.A. Todos los derechos reservados" %}
                 </p>
             </div>
         </div>
     </div>
 </footer>
-
 {% endblock %}

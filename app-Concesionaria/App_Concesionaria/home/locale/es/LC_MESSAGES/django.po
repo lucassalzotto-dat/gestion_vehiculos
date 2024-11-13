@@ -1,0 +1,107 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-13 09:05-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+#: .\home\templates\home.html:5
+msgid "Dream Cars 🏎️"
+msgstr "Dream Cars 🏎️"
+
+#: .\home\templates\home.html:24
+msgid "Bienvenido a Dream Cars"
+msgstr "Bienvenido a Dream Cars"
+
+#: .\home\templates\home.html:25
+msgid "Haz realidad tu sueño sobre ruedas"
+msgstr "Haz realidad tu sueño sobre ruedas"
+
+#: .\home\templates\home.html:26
+msgid "Explorar Modelos"
+msgstr "Explorar Modelos"
+
+#: .\home\templates\home.html:36
+msgid "Acerca de"
+msgstr "Acerca de"
+
+#: .\home\templates\home.html:37
+msgid "En Dreams Cars, somos la concesionaria más destacada del mercado. Nos dedicamos a ofrecerte una experiencia inolvidable."
+msgstr "En Dreams Cars, somos la concesionaria más destacada del mercado. Nos dedicamos a ofrecerte una experiencia inolvidable."
+
+#: .\home\templates\home.html:45
+msgid "Información"
+msgstr "Información"
+
+#: .\home\templates\home.html:47
+msgid "Online Enquiry"
+msgstr "Consulta en línea"
+
+#: .\home\templates\home.html:48
+msgid "General Enquiries"
+msgstr "Consultas generales"
+
+#: .\home\templates\home.html:49
+msgid "Booking Conditions"
+msgstr "Condiciones de reserva"
+
+#: .\home\templates\home.html:50
+msgid "Privacy and Policy"
+msgstr "Política de privacidad"
+
+#: .\home\templates\home.html:51
+msgid "Refund Policy"
+msgstr "Política de reembolso"
+
+#: .\home\templates\home.html:52
+msgid "Call Us"
+msgstr "Llámanos"
+
+#: .\home\templates\home.html:56
+msgid "Opciones"
+msgstr "Opciones"
+
+#: .\home\templates\home.html:58
+msgid "0 KM"
+msgstr "0 KM"
+
+#: .\home\templates\home.html:59
+msgid "Usados"
+msgstr "Usados"
+
+#: .\home\templates\home.html:60
+msgid "Planes de Ahorro"
+msgstr "Planes de Ahorro"
+
+#: .\home\templates\home.html:61
+msgid "Post Venta"
+msgstr "Post Venta"
+
+#: .\home\templates\home.html:62
+msgid "Foro"
+msgstr "Foro"
+
+#: .\home\templates\home.html:66
+msgid "Contacta con Nosotros"
+msgstr "Contacta con Nosotros"
+
+#: .\home\templates\home.html:68
+msgid "A005, 123, Río Cuarto, Córdoba"
+msgstr "A005, 123, Río Cuarto, Córdoba"
+
+#: .\home\templates\home.html:77
+msgid "Dream Cars S.A. Todos los derechos reservados"
+msgstr "Dream Cars S.A. Todos los derechos reservados"

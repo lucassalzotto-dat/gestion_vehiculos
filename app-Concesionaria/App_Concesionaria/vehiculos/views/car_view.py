@@ -10,6 +10,9 @@ from App_Concesionaria.decorators.decorators import staff_required
 
 repository = VehiculosRepository()
 
+def staff_required(user):
+    return user.is_staff
+
 # Vista para mostrar la lista de vehículos, accesible para todos
 class CarListView(View):
     def get(self, request):

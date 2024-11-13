@@ -20,11 +20,13 @@ schema_view = get_schema_view(
     permission_classes=(permissions.AllowAny,),
 )
 
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("usuario/", include("usuario.urls")),
     path("vehiculos/", include("vehiculos.urls")),
-    path("", include("home.urls")),
+    path("", include("home.urls")),  # Ruta principal de la página de inicio
+    path("i18n/", include("django.conf.urls.i18n")),  # Ruta para cambiar el idioma
 
     # URLs para Swagger
     path("swagger/", schema_view.with_ui("swagger", cache_timeout=0), name="schema-swagger-ui"),
