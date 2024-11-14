@@ -75,6 +75,6 @@ class RegisterView(View):
         form = RegisterForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)  # Opcional: inicia sesión al usuario inmediatamente después de registrarse
+            login(request, user) 
             return redirect('vehiculos_app:vehiculo_list')
-        return render(request, 'register.html', {'form': form})
+        return render(request, 'usuarios/register.html', {'form': form})
